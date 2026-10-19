@@ -21,6 +21,15 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      # Download and install API 37 platform tools onto the GitHub runner
+      - name: Set up Android SDK Platforms
+        uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: 16.0
+          packages: |
+            platforms;android-37
+            build-tools;37.0.0
+
       - name: Set up Flutter SDK
         uses: subosito/flutter-action@v2
         with:
